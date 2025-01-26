@@ -2,12 +2,6 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-
-class MyErrors(Exception):
-    def __init__(self, message: str) -> None:
-        super().__init__(message)
-
-
 class Validator(ABC):
 
     def __set_name__(self, owner: Validator, name: str) -> None:
@@ -37,7 +31,7 @@ class Number(Validator):
         self.max_value = max_value
 
     def validate(self, value: int) -> int:
-        if not isinstance(value, int | str):
+        if not isinstance(value, int):
             raise TypeError("Quantity should be integer.")
         if value not in range(self.min_value, self.max_value + 1):
             raise ValueError(f"Quantity should not be less than "
