@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
+
 class Validator(ABC):
 
     def __set_name__(self, owner: Validator, name: str) -> None:
